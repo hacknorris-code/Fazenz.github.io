@@ -202,17 +202,17 @@ header {
 }
 
 .card1 {
+    display: flex;
     width: 100%;
     height: 500px;
     perspective: 3200px; /* Nécessaire pour l'effet 3D */
     position: relative;
+    transition: transform 1s cubic-bezier(0.39,0.575,0.565,1), scale 1.1s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
 }
 
 .card1:hover {
 
-    .card-title1 {
-        scale: 1.25;
-    }
+    scale:1.025;
 
     .svg-button-card1 path {
         fill: rgb(108,108,112);
@@ -326,7 +326,7 @@ header {
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    transition: transform 1s cubic-bezier(0.39,0.575,0.565,1), scale 1s ease;
+    transition: transform 1s cubic-bezier(0.39,0.575,0.565,1), scale 1.1s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .card2:hover{
