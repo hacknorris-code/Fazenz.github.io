@@ -1,0 +1,475 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    background-color: #f1f1fe;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: fit-content;
+    text-align: center;
+    overflow-y: visible;
+    overflow-x: hidden;
+    flex-grow: 1;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+header {
+    z-index: 1;
+    width: 100%;
+}
+
+.navbar-container {
+    display: flex;
+    width: 100px;
+    height: 100%;
+    z-index: 0;
+    align-items: start;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-container{
+    display: flex;
+    width: 100%;
+    height: 160dvh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(174,174,178), rgb(174,174,178), rgb(174,174,178),#f1f1fe);
+}
+
+.card-container {
+    display: flex;
+    max-width: 980px;
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin: 12% 0 0 0;
+    padding-bottom: 5%;
+    gap: 55px;
+}
+
+.card-container > [class^="card"]:last-child {
+    margin: 0 0 50px 0;
+    box-sizing: border-box;
+}
+
+.title{
+    font-family: 'Sf Pro Display Medium';
+    font-size: clamp(8em, 10em, 16em);
+    line-height: 1.15;
+    letter-spacing: -.01rem;
+    transition: color 1s ease;
+}
+
+.title:hover{
+    color: #48484A;
+}
+
+.sub-title{
+    font-family: 'SF Pro Text Medium';
+    font-size: 4em;
+    margin: 10px 0 0 0;
+}
+
+.a-sub-title {
+    text-decoration: none;
+    color: black;
+    font-family: 'SF Pro Text Medium';
+    transition: color .32s ease;
+    position: relative;
+}
+
+.title-hover-message {
+    width: fit-content;
+    height: fit-content;
+    opacity: 0;
+    transition: all .32s ease;
+}
+
+.title-hover-svg {
+    width: 44px;
+    height: 44px;
+    padding: 0px 0 0 15px;
+    transform-origin: top-right;
+    transform: translateX(-15px);
+    transition: transform .5s ease;
+}
+
+.title-hover-svg path {
+    fill: black;
+}
+
+.a-sub-title:hover{
+    color: #3a3939;
+}
+
+.a-sub-title:hover + .title-hover-message {
+    opacity: 1;
+    
+    .title-hover-svg {
+        
+        transform: translateX(-5px);
+    }
+}
+
+.a-sub-title::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0; /* Ligne invisible au départ */
+    height: 2px;
+    background: black;
+    transition: all 0.24s cubic-bezier(.76,.31,.83,.67); /* Transition très fluide */
+    transform: translateX(-50%);
+}
+
+.a-sub-title:hover::before {
+    width: 100%; /* Ligne complète au survol */
+    left: 0;
+    transform: translateX(0); /* Alignement fluide avec la largeur */
+    background: #555;
+}
+
+.card-title1, .card-title2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SF Pro Display Medium';
+    font-size: 96px;
+    line-height: 1.3347;
+    letter-spacing: -.01em;
+    transition: all .32s ease;
+}
+
+.card-title1 {
+    margin: 10px 0 0 0;
+}
+
+.card-text {
+    font-family: 'SF Pro';
+    font-size: 25px;
+    line-height: 1.3347;
+    letter-spacing: -.01em;
+    padding: 0 20px 0 20px;
+}
+
+.button-card1, .button-text{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    padding: 10px;
+    z-index: 0;
+}
+
+.svg-button-card1, .svg-button-card2, .svg-button-card2-text{
+    width: 34px;
+    height: 34px;
+}
+
+.svg-button-card1 path, .svg-button-card2 path, .svg-button-card2-text path{
+    transition: all .32s ease;
+}
+
+.card1 {
+    width: 100%;
+    height: 500px;
+    perspective: 3200px; /* Nécessaire pour l'effet 3D */
+    position: relative;
+}
+
+.card1:hover {
+
+    .card-title1 {
+        scale: 1.25;
+    }
+
+    .svg-button-card1 path {
+        fill: rgb(108,108,112);
+    }
+
+    .lottie-path {
+        stroke-dashoffset: 0;
+        stroke: #06c;
+        }
+}
+
+.card-back:hover {
+
+    .svg-button-card2 path {
+        fill: rgb(108,108,112);
+    }
+}
+
+.card1 .card-front,
+.card1 .card-back{
+    width: 980px;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Cache le verso quand le recto est visible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 1s cubic-bezier(0.39,0.575,0.565,1);
+}
+
+.card1 .card-front{
+    background: rgb(242, 242, 247);
+}
+
+.card1 .card-back {
+    background: #fff;
+    transform: rotateX(180deg);
+}
+
+.card1.flipped {
+    transform: rotateX(180deg);
+    transform-style: preserve-3d; /* Maintient le 3D pendant la transition */
+}
+
+.card1, .card2{
+    transform-style: preserve-3d;
+    transition: transform 1.5s;
+    cursor: crosshair;
+}
+.lottie {
+    margin: 0 0 0 0;
+    display: flex;
+}
+
+.lottie-path {
+    stroke-dasharray: 705; /* La longueur totale du chemin */
+    stroke-dashoffset: 705; /* Cache le chemin au début */
+    stroke: #06c;
+    transition: stroke-dashoffset .64s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lottie-container {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+}
+
+.hover-message {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #555;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    right: -130%;
+    bottom: 12.5px;
+    width: fit-content;
+    white-space: nowrap;
+    z-index: 1;
+    transition: visibility .1s ease ,opacity 0.64s, transform .64s ease;
+    font-family: 'SF Pro';
+}
+
+.button-text:hover .hover-message {
+    transform: translateX(-50%);
+    visibility: visible;
+    opacity: 1;
+}
+
+.button-text:not(:hover) .hover-message {
+    transform: translateX(50%);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.card2 {
+    width: 980px;
+    height: 500px;
+    background-color: #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    transition: transform 1s cubic-bezier(0.39,0.575,0.565,1), scale 1s ease;
+}
+
+.card2:hover{
+    scale: 1.025;
+}
+
+.card2 .card-front,
+.card2 .card-back{
+    width: 980px;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 1s cubic-bezier(0.39,0.575,0.565,1);
+}
+
+.card2 .card-front{
+    background: rgb(242, 242, 247);
+}
+
+.card2 .card-back {
+    background: #fff;
+    transform: rotateX(180deg);
+}
+
+.card2.flipped {
+    transform: rotateX(180deg);
+    transform-style: preserve-3d; /* Maintient le 3D pendant la transition */
+}
+
+.card2 .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card2-text {
+    font-size: 1.5em;
+    padding: 0 20px 0 20px;
+    font-family: 'SF Pro';
+    line-height: 1.3347;
+    letter-spacing: -.01em;
+}
+
+.card2 .card-front {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-container {
+    display: flex;
+    width: 400px;
+    height: 100%;
+}
+
+.card2-image {
+    width: 400px;
+    height: inherit;
+    object-fit: cover;
+    border-radius: 12px 0px 12px 0px;
+}
+
+.card2-title-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card2 .card-title2 {
+    color: #555;
+}
+
+.button-container2 {
+    display: flex;
+    position: relative;
+    width: 44px;
+    height: 44px;
+}
+
+.button-text2,
+.button-text3 {
+    display: flex;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    cursor: crosshair;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.button-text3 {
+    visibility: hidden;
+    opacity: 0;
+    left: 7px;
+    transition: visibility 0.4s, opacity 0.4s ease-in-out;
+}
+
+.button-text3.toggled {
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.button-text2.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.4s ease-in-out;
+}
+
+.button-text2 {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+}
+
+.card2-text-hidden {
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    top: 82.5%;
+    text-align: center;
+    background-color: #fff;
+    padding: 10px;
+    transition: all 1s ease;
+}
+
+.card2-text-hidden.visible {
+    display: flex;
+}
+
+.svg-button-card2-text:hover path {
+    fill: rgb(108, 108, 112);
+}
+

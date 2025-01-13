@@ -5,9 +5,75 @@
         <link rel="shortcut icon" href="icons/favicon.ico">
         <link rel="stylesheet" href="css/fonts.css">
         <link rel="stylesheet" href="css/index.css">
-        <script src="scripts/searchbar.js" defer></script>
-        <script src="scripts/scroll.js" defer></script>
+        <script src="scripts/flipcard.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="scripts/scrolling.js" defer></script>
 </head>
 <body>
-    <p>test</p>
+    <main>
+        <div class="container">
+            <div class="title-container">
+                <div class="title">Lilian</div>
+                <div class="title">Kolber-Bourinat</div>
+                <div class="sub-title">🇫🇷/🇵🇱 - 20y - <a href="https://maps.apple.com/?address=59800%20Lille,%20France&auid=17410593958466431377&ll=50.630318,3.050788&lsp=7618&q=Lille&t=h" class="a-sub-title">Lille</a><span class="title-hover-message"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 20.2832 19.9316" width="200" height="200" class="title-hover-svg"><g><rect height="19.9316" width="20.2832" x="0" y="0" fill="none"/><path d="M19.9219 9.96094C19.9219 15.4492 15.459 19.9219 9.96094 19.9219C4.47266 19.9219 0 15.4492 0 9.96094C0 4.46289 4.47266 0 9.96094 0C15.459 0 19.9219 4.46289 19.9219 9.96094ZM8.4375 13.4961L11.084 14.9902C11.1719 15.0293 11.2598 15.0586 11.3281 15.0781L11.3281 6.50391L8.74023 4.92188C8.64258 4.86328 8.55469 4.82422 8.4375 4.80469ZM14.3652 5.12695L12.0508 6.40625L12.0508 15.0684C12.0996 15.0488 12.1484 15.0293 12.207 15L14.9414 13.4473C15.2539 13.2617 15.4004 13.0078 15.4004 12.666L15.4004 5.5957C15.4004 5.19531 15.1758 4.99023 14.8047 4.99023C14.668 4.99023 14.5312 5.0293 14.3652 5.12695ZM7.42188 5.04883L4.93164 6.47461C4.61914 6.65039 4.48242 6.9043 4.48242 7.25586L4.48242 14.3164C4.48242 14.707 4.69727 14.9316 5.07812 14.9316C5.21484 14.9316 5.35156 14.873 5.51758 14.7852L7.72461 13.5938L7.72461 4.89258C7.63672 4.94141 7.5293 5 7.42188 5.04883Z" fill="black"/></g></svg></span></div>
+            </div>
+            <div class="card-container">
+                <div class="card1" onclick="flipCard(this)">
+                    <div class="card-front">
+                        <div class="card-title1">Who am i?</div>
+                        <div class="lottie-container">
+                            <svg class="lottie" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 705 25" width="705" height="25" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 80%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;">
+                                <defs>
+                                    <clipPath id="__lottie_element_140"><rect width="705" height="25" x="0" y="0"></rect></clipPath>
+                                </defs>
+                                <g clip-path="url(#__lottie_element_140)">
+                                    <g transform="matrix(2.200000047683716,0,0,1.149999976158142,358.0660095214844,-199.8962860107422)" opacity="1" style="display: block;">
+                                        <g opacity="1" transform="matrix(3.440000057220459,0,0,1.5,3.1150002479553223,-90.94000244140625)">
+                                            <path class="lottie-path" stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(28,217,86)" stroke-opacity="1" stroke-width="8" d="M-44.12300109863281,185 C-43.36199951171875,182.89500427246094 -43.308998107910156,182.79800415039062 -37.29999923706055,182.33299255371094 C-30.92799949645996,181.83999633789062 -2.809999942779541,178.48500061035156 40.858001708984375,183.46400451660156"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="button-card1"><svg width="200" height="200" viewBox="0 0 20.2832 19.9316" class="svg-button-card1"><path d="M19.9219 9.96094C19.9219 15.4492 15.459 19.9219 9.96094 19.9219C4.47266 19.9219 0 15.4492 0 9.96094C0 4.46289 4.47266 0 9.96094 0C15.459 0 19.9219 4.46289 19.9219 9.96094ZM9.11133 6.05469L9.11133 9.11133L6.05469 9.11133C5.54688 9.11133 5.19531 9.46289 5.19531 9.9707C5.19531 10.4688 5.54688 10.8008 6.05469 10.8008L9.11133 10.8008L9.11133 13.8672C9.11133 14.3652 9.45312 14.7266 9.95117 14.7266C10.459 14.7266 10.8105 14.375 10.8105 13.8672L10.8105 10.8008L13.877 10.8008C14.375 10.8008 14.7363 10.4688 14.7363 9.9707C14.7363 9.46289 14.375 9.11133 13.877 9.11133L10.8105 9.11133L10.8105 6.05469C10.8105 5.54688 10.459 5.18555 9.95117 5.18555C9.45312 5.18555 9.11133 5.54688 9.11133 6.05469Z" fill="black"/></svg></div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-title2">Hello !</div>
+                        <div class="card-text">As you may know, my name is Lilian, currently i'm studying Computer Science in Lille</div>
+                        <div class="card-text">I'm passionate about development and especially Web development. Also i'm trying to improve my design skills so i can build cleaner websites.</div>
+                        <div class="button-container">
+                            <div class="button-text"><a href="presentation.html">
+                                <svg width="200" height="200" viewBox="0 0 20.2832 19.9316" class="svg-button-card2">
+                                    <path d="M19.9219 9.96094C19.9219 15.4492 15.459 19.9219 9.96094 19.9219C4.47266 19.9219 0 15.4492 0 9.96094C0 4.46289 4.47266 0 9.96094 0C15.459 0 19.9219 4.46289 19.9219 9.96094ZM9.11133 6.05469L9.11133 9.11133L6.05469 9.11133C5.54688 9.11133 5.19531 9.46289 5.19531 9.9707C5.19531 10.4688 5.54688 10.8008 6.05469 10.8008L9.11133 10.8008L9.11133 13.8672C9.11133 14.3652 9.45312 14.7266 9.95117 14.7266C10.459 14.7266 10.8105 14.375 10.8105 13.8672L10.8105 10.8008L13.877 10.8008C14.375 10.8008 14.7363 10.4688 14.7363 9.9707C14.7363 9.46289 14.375 9.11133 13.877 9.11133L10.8105 9.11133L10.8105 6.05469C10.8105 5.54688 10.459 5.18555 9.95117 5.18555C9.45312 5.18555 9.11133 5.54688 9.11133 6.05469Z" fill="black"/>
+                                </svg>
+                            </a>
+                                <span class="hover-message">Click on me to acces to my resumé</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card2" onclick="flipCard(this)">
+                    <div class="card-front">
+                        <div class="image-container">
+                            <img src="img/F5B50C99-A840-4330-A20B-18627C51E306.webp" alt="creativity image" class="card2-image">
+                        </div>
+                        <div class="card2-title-container">
+                            <div class="card-title2">My Projects</div>
+                        </div>
+                    </div>
+                    <div class="card-back" id="card2-back">
+                        <div class="card2-text">I'm always trying to improve my skills aswell as learning new ones</div>
+                        <div class="card2-text">I'm in need of sensationnal projects that are useful for the world</div>
+                        <div class="card2-text">And so in order to bring useful things to the world, i'm always seeking about solving issues humanity has</div>
+                        <div class="button-container2">
+                            <div class="button-text2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.6914 19.6777" width="44" height="44"><g><rect height="19.6777" width="13.6914" x="0" y="0" fill="none"/><path d="M2.19727 19.1602L11.1328 19.1602C12.5684 19.1602 13.3301 18.3789 13.3301 16.8359L13.3301 10.1074C13.3301 8.56445 12.5684 7.79297 11.1328 7.79297L2.19727 7.79297C0.761719 7.79297 0 8.56445 0 10.1074L0 16.8359C0 18.3789 0.761719 19.1602 2.19727 19.1602ZM1.70898 8.54492L3.26172 8.54492L3.26172 5.24414C3.26172 2.7832 4.83398 1.47461 6.66016 1.47461C8.48633 1.47461 10.0781 2.7832 10.0781 5.24414L10.0781 8.54492L11.6211 8.54492L11.6211 5.45898C11.6211 1.78711 9.21875 0 6.66016 0C4.11133 0 1.70898 1.78711 1.70898 5.45898Z" fill="black"/></g></svg></div>
+                            <div class="button-text3"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.459 19.6387" width="44" height="44"><g><path d="M2.19727 19.1406L11.1328 19.1406C12.5684 19.1406 13.3301 18.3594 13.3301 16.8164L13.3301 10.0879C13.3301 8.55469 12.5684 7.77344 11.1328 7.77344L2.19727 7.77344C0.761719 7.77344 0 8.55469 0 10.0879L0 16.8164C0 18.3594 0.761719 19.1406 2.19727 19.1406ZM10.1855 8.53516L11.7285 8.53516L11.7285 5.24414C11.7285 2.77344 13.3105 1.47461 15.1367 1.47461C16.9629 1.47461 18.5449 2.77344 18.5449 5.24414L18.5449 7.41211C18.5449 7.98828 18.8867 8.28125 19.3262 8.28125C19.7461 8.28125 20.0977 8.01758 20.0977 7.41211L20.0977 5.44922C20.0977 1.77734 17.6855 0 15.1367 0C12.5781 0 10.1855 1.77734 10.1855 5.44922Z" fill="black"/></g></svg></div>
+                        </div>
+                        <div class="card2-text-hidden" title="To the projects section"><a href=""><svg width="200" height="200" viewBox="0 0 20.2832 19.9316" class="svg-button-card2-text"><path d="M19.9219 9.96094C19.9219 15.4492 15.459 19.9219 9.96094 19.9219C4.47266 19.9219 0 15.4492 0 9.96094C0 4.46289 4.47266 0 9.96094 0C15.459 0 19.9219 4.46289 19.9219 9.96094ZM9.11133 6.05469L9.11133 9.11133L6.05469 9.11133C5.54688 9.11133 5.19531 9.46289 5.19531 9.9707C5.19531 10.4688 5.54688 10.8008 6.05469 10.8008L9.11133 10.8008L9.11133 13.8672C9.11133 14.3652 9.45312 14.7266 9.95117 14.7266C10.459 14.7266 10.8105 14.375 10.8105 13.8672L10.8105 10.8008L13.877 10.8008C14.375 10.8008 14.7363 10.4688 14.7363 9.9707C14.7363 9.46289 14.375 9.11133 13.877 9.11133L10.8105 9.11133L10.8105 6.05469C10.8105 5.54688 10.459 5.18555 9.95117 5.18555C9.45312 5.18555 9.11133 5.54688 9.11133 6.05469Z" fill="black"/></svg></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
