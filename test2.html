@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Scroll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth; /* Activer le smooth scroll global */
+        }
+        .section {
+            height: 100vh; /* Simule plusieurs sections à défiler */
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <a href="#first-card" id="scroll-link">Go to First Card</a>
+    <div class="section">Section 1</div>
+    <div class="section">Section 2</div>
+    <div id="first-class" class="section">This is First Class Section</div>
+
+    <!-- Inclure le script depuis le dossier scripts -->
+    <script src="scripts/smooth-scroll.js"></script>
+</body>
+</html>
