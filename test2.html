@@ -3,26 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smooth Scroll</title>
+    <title>Smooth Scrolling</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            scroll-behavior: smooth; /* Activer le smooth scroll global */
-        }
+        /* Just some styling for the demo */
         .section {
-            height: 100vh; /* Simule plusieurs sections à défiler */
-            padding: 20px;
-            border: 1px solid #ccc;
+            height: 100vh; /* Makes each section take up full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: lightgray;
+            margin: 10px 0;
+        }
+        #first-card {
+            background-color: lightblue;
         }
     </style>
 </head>
 <body>
-    <a href="#first-card" id="scroll-link">Go to First Card</a>
-    <div class="section">Section 1</div>
-    <div class="section">Section 2</div>
-    <div id="first-class" class="section">This is First Class Section</div>
 
-    <!-- Inclure le script depuis le dossier scripts -->
+    <!-- Navigation links -->
+    <nav>
+        <a href="#second-card">Go to First Card</a>
+    </nav>
+
+    <!-- Sections of the page -->
+    <div class="section" id="first-card">
+        <h2>This is the First Card</h2>
+    </div>
+    <div class="section" id="second-card">
+        <h2>This is the Second Card</h2>
+    </div>
+    <div class="section">
+        <h2>Another Section</h2>
+    </div>
+
+    <!-- Include your script at the end of the body -->
     <script src="scripts/smooth-scroll.js"></script>
+
 </body>
 </html>
