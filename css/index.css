@@ -274,17 +274,17 @@ header {
 
 .card1 .card-front{
     background: rgb(242, 242, 247);
-    transform: rotateX(0deg) translateZ(1px);
+    transform: rotateX(0deg);
 }
 
 .card1 .card-back {
     background: #fff;
-    transform: perspective(1000px) rotateX(180deg) translateZ(-1px);
+    transform: perspective(1000px) rotateX(180deg);
 }
 
 .card1.flipped {
-    transform: perspective(1000px) rotateX(180deg) translateZ(-1px);
-    transform-style: preserve-3d; /* Maintient le 3D pendant la transition */
+    transform: perspective(1000px) rotateX(180deg);
+    transform-style: preserve-3d; /* Maintient le 3D pendant les transition */
 }
 
 .card1, .card2{
