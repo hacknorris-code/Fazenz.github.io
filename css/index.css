@@ -251,7 +251,7 @@ header {
 }
 
 .card-back:hover {
-
+    
     .svg-button-card2 path {
         fill: rgb(108,108,112);
     }
@@ -285,11 +285,6 @@ header {
 .card1.flipped {
     transform: perspective(1000px) rotateX(180deg) translateZ(-1px);
     transform-style: preserve-3d; /* Maintient le 3D pendant la transition */
-
-    .lottie path {
-        opacity: 0;
-        transition: opacity .24s ease;
-    }
 }
 
 .card1, .card2{
