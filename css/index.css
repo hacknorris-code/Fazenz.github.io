@@ -232,7 +232,8 @@ header {
     height: 500px;
     perspective: 3200px; /* Nécessaire pour l'effet 3D */
     position: relative;
-    transition: transform .64s cubic-bezier(0.39,0.575,0.565,1), scale .64s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
+    will-change: transform;
+    transition: transform .75s cubic-bezier(0.39,0.575,0.565,1), scale .64s cubic-bezier(0.68, -0.55, 0.27, 1.55) !important;
 }
 
 .card1:hover {
@@ -273,17 +274,22 @@ header {
 
 .card1 .card-front{
     background: rgb(242, 242, 247);
+    transform: rotateX(0deg) translateZ(1px);
 }
 
 .card1 .card-back {
     background: #fff;
-    transform: rotateX(180deg);
-    dd
+    transform: perspective(1000px) rotateX(180deg) translateZ(-1px);
 }
 
 .card1.flipped {
-    transform: rotateX(180deg);
+    transform: perspective(1000px) rotateX(180deg) translateZ(-1px);
     transform-style: preserve-3d; /* Maintient le 3D pendant la transition */
+
+    .lottie path {
+        opacity: 0;
+        transition: opacity .24s ease;
+    }
 }
 
 .card1, .card2{
@@ -384,7 +390,7 @@ header {
 }
 
 .card2.flipped {
-    transform: rotateX(180deg);
+    transform: perspective(1000px) rotateX(180deg);
     transform-style: preserve-3d; /* Maintient le 3D pendant la transition */
 }
 

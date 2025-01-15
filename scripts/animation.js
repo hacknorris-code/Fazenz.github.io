@@ -1,4 +1,3 @@
-// GSAP Animations
 document.addEventListener("DOMContentLoaded", () => {
     const timeline = gsap.timeline({ defaults: { ease: "power2.out" } });
 
@@ -15,20 +14,5 @@ document.addEventListener("DOMContentLoaded", () => {
         yoyo: true,
         duration: 1,
         ease: "power1.inOut"
-    });
-
-    // Animation des cartes au défilement
-    gsap.utils.toArray(".card-container .card1, .card-container .card2").forEach((card, index) => {
-        gsap.from(card, {
-            opacity: 0,
-            y: 50,
-            duration: 1,
-            scrollTrigger: {
-                trigger: card,
-                start: "top 80%",
-                end: "top 60%",
-                toggleActions: "play none none none",
-            },
-        });
     });
 });
