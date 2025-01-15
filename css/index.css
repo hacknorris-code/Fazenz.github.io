@@ -278,6 +278,7 @@ header {
 .card1 .card-back {
     background: #fff;
     transform: rotateX(180deg);
+    dd
 }
 
 .card1.flipped {
