@@ -10,60 +10,33 @@ body, html {
 body {
     display: flex;
     flex-direction: column;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     height: 100%;
     width: 100%;
     background-color: #f1f1fe;
-    scroll-behavior: smooth;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: fit-content;
-    text-align: center;
-    overflow-y: visible;
-    overflow-x: hidden;
-    flex-grow: 1;
-    box-sizing: border-box;
-    z-index: 10;
-}
-
-header {
-    z-index: 1;
-    width: 100%;
-}
-
-.navbar-container {
-    display: flex;
-    width: 100px;
-    height: 100%;
-    z-index: 0;
-    align-items: start;
-    position: relative;
-    box-sizing: border-box;
+    text-overflow: ellipsis;
 }
 
 .container{
     display: flex;
-    width: 100%;
-    max-width: 100vw;
-    height: 100%;
+    width: 100dvw;
+    height: 100dvh;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
 
 .title-container{
     display: flex;
     width: 100%;
-    max-width: 100vw;
     height: 100%;
     min-height: 100dvh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
     background: linear-gradient(rgb(174,174,178), rgb(174,174,178), rgb(174,174,178),#f1f1fe);
 }
 
@@ -75,9 +48,13 @@ header {
     width: 100%;
     flex-direction: column;
     align-items: center;
-    margin: 12% 0 0 0;
+    margin: 7% 0 0 0;
     padding-bottom: 5%;
     gap: 55px;
+}
+
+#card-container {
+    margin: 5% 0 5% 0;
 }
 
 .card-container > [class^="card"]:last-child {
@@ -191,7 +168,7 @@ header {
     align-items: center;
     justify-content: center;
     font-family: 'SF Pro Display Medium';
-    font-size: 96px;
+    font-size: clamp(44px, 96px ,96px);
     line-height: 1.3347;
     letter-spacing: -.01em;
     transition: all .32s ease;
@@ -232,6 +209,7 @@ header {
 .card1 {
     display: flex;
     width: 100%;
+    max-width: 980px;
     height: 500px;
     perspective: 3200px; /* Nécessaire pour l'effet 3D */
     position: relative;
@@ -262,7 +240,7 @@ header {
 
 .card1 .card-front,
 .card1 .card-back{
-    width: 980px;
+    width: 100%;
     height: 100%;
     position: absolute;
     backface-visibility: hidden; /* Cache le verso quand le recto est visible */
@@ -346,8 +324,9 @@ header {
 }
 
 .card2 {
-    width: 980px;
+    width: 100%;
     height: 500px;
+    max-width: 980px;
     background-color: #ddd;
     display: flex;
     flex-direction: column;
@@ -365,7 +344,7 @@ header {
 
 .card2 .card-front,
 .card2 .card-back{
-    width: 980px;
+    width: 100%;
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
@@ -502,4 +481,5 @@ header {
 .svg-button-card2-text:hover path {
     fill: rgb(108, 108, 112);
 }
+
 

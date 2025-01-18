@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     timeline
         .from(".title", { y: 50, opacity: 0, duration: 1.25 })
         .from(".sub-title", { y: 30, opacity: 0, duration: 1.25 }, "-=0.5")
-        .from(".arrow", { y: 20, opacity: 0, duration: 1.25 }, "-=0.5");
+        .from(".arrow", { y: 20, opacity: 0, duration: 1.25 }, "-=0.5")
 
     // Animation en boucle pour la flèche
     gsap.to(".arrow-down", {
