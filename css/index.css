@@ -492,7 +492,6 @@ body {
 
 @media screen and (max-width: 600px) {
     html, body {
-        overflow-x: hidden; /* Assure qu'il n'y a pas de défilement horizontal */
         font-size: 14px; /* Réduit la taille du texte pour les petits écrans */
     }
 
