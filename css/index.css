@@ -191,6 +191,7 @@ body {
     line-height: 1.3347;
     letter-spacing: -.01em;
     padding: 0 20px 0 20px;
+    transition: color .32s ease;
 }
 
 .button-card1, .button-text{
@@ -497,15 +498,17 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    overflow-y: scroll;
+    align-items: center;
     background: rgb(241,241,254);
     background: linear-gradient(180deg, rgba(241,241,254,1) 0%, rgba(185,176,192,1) 20%, rgba(119,100,120,1) 45%, rgba(89,65,87,1) 70%);
 }
 
 .language-title {
     margin: 10% 0 0 0;
+    font-family: 'SF Pro Display Medium';
     font-size: clamp(2em, 8em, 12em);
-    font-weight: bold;
+    letter-spacing: -.01em;
+    width: fit-content;
     text-align: center;
     background: linear-gradient(135deg, #f1f1fe, #000000, #000000, #000000); /* Gradient complexe */
     background-size: 200%; /* Étend le gradient pour permettre le défilement */
@@ -513,12 +516,26 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; /* Applique uniquement le gradient */
     color: transparent; /* Cache la couleur de base */
+    transition: scale .32s ease;
+}
+
+.language-title:hover{
+    scale: 1.025;
 }
 
 .hidden {
     opacity: 0;
+    position: relative;
     transform: translateY(50px); /* Décalage vers le bas */
     transition: opacity 1.2s ease-out, transform 1.75s ease-out;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    gap: 20px;
+    box-sizing: border-box;
 }
 
 .visible {
@@ -529,7 +546,9 @@ body {
     justify-content: center;
     height: 100%;
     width: 100%;
+    overflow-y: hidden;
     gap: 20px;
+    box-sizing: border-box;
 }
 
 .language-cards{
@@ -553,6 +572,10 @@ body {
     scale: 1.025;
     -webkit-box-shadow: 0px 0px 20px 5px #000000; 
     box-shadow: 0px 0px 20px 5px #000000;
+
+    .card-text {
+        color: gray;
+    }
 }
 
 @media screen and (max-width: 1920px) {
@@ -579,7 +602,7 @@ body {
         width: 90vw; /* S'assure que les cartes prennent la largeur de l'écran */
     }
 
-    .card-title1, .card-title2 {
+    .card-title1, .card-title2, .language-title{
         font-size: 3em;
     }
 
