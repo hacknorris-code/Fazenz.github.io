@@ -499,6 +499,7 @@ body {
     flex-direction: column;
     position: relative;
     align-items: center;
+    overflow-x: hidden;
     background: rgb(241,241,254);
     background: linear-gradient(180deg, rgba(241,241,254,1) 0%, rgba(185,176,192,1) 20%, rgba(119,100,120,1) 45%, rgba(89,65,87,1) 70%);
 }
@@ -508,7 +509,7 @@ body {
     font-family: 'SF Pro Display Medium';
     font-size: clamp(2em, 8em, 12em);
     letter-spacing: -.01em;
-    width: fit-content;
+    width: 100%;
     text-align: center;
     background: linear-gradient(135deg, #f1f1fe, #000000, #000000, #000000); /* Gradient complexe */
     background-size: 200%; /* Étend le gradient pour permettre le défilement */
@@ -604,6 +605,13 @@ body {
 
     .card-title1, .card-title2, .language-title{
         font-size: 3em;
+    }
+
+    .visible {
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0 0 0;
+        justify-content: start;
     }
 
     .title {
