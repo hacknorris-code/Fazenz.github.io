@@ -16,7 +16,6 @@ body {
     height: 100%;
     width: 100%;
     background-color: #f1f1fe;
-    text-overflow: ellipsis;
 }
 
 .container{
@@ -26,10 +25,8 @@ body {
     flex-direction: column;
     align-items: center;
     z-index: 1;
-    box-sizing: border-box;
     padding: 0;
     margin: 0 auto;
-    overflow:-moz-hidden-unscrollable;
 }
 
 .title-container{
@@ -44,6 +41,7 @@ body {
     position: relative;
     background: rgb(2,0,36);
     background: linear-gradient( rgba(2,0,36,1) 0%, rgba(53,53,129,1) 35%, rgba(241,241,254,1) 100%);
+    box-sizing: border-box;
 }
 
 .card-container {
@@ -57,6 +55,9 @@ body {
     margin: 7% 10px 0 10px;
     padding-bottom: 5%;
     gap: 55px;
+    box-sizing: border-box;
+    background: #f1f1fe;
+    overflow-x: hidden;
 }
 
 #card-container {
@@ -174,7 +175,7 @@ body {
     align-items: center;
     justify-content: center;
     font-family: 'SF Pro Display Medium';
-    font-size: 6.5em;
+    font-size: clamp(4em, 6.5em, 8em);
     line-height: 1.3347;
     letter-spacing: -.01em;
     transition: all .32s ease;
@@ -186,7 +187,7 @@ body {
 
 .card-text {
     font-family: 'SF Pro';
-    font-size: 25px;
+    font-size: clamp(1em, 2em, 4em);
     line-height: 1.3347;
     letter-spacing: -.01em;
     padding: 0 20px 0 20px;
@@ -404,10 +405,11 @@ body {
 }
 
 .card2-image {
+    display: flex;
     width: 100%;
     height: inherit;
     object-fit: cover;
-    border-radius: 12px 0px 12px 0px;
+    border-radius: 12px 0px 0px 12px;
 }
 
 .card2-title-container {
@@ -487,6 +489,70 @@ body {
 
 .svg-button-card2-text:hover path {
     fill: rgb(108, 108, 112);
+}
+
+.language-container {
+    height: 200vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-y: scroll;
+    background: rgb(241,241,254);
+    background: linear-gradient(180deg, rgba(241,241,254,1) 0%, rgba(185,176,192,1) 20%, rgba(119,100,120,1) 45%, rgba(89,65,87,1) 70%);
+}
+
+.language-title {
+    margin: 10% 0 0 0;
+    font-size: clamp(4em, 8em, 12em);
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(135deg, #f1f1fe, #000000, #000000, #000000); /* Gradient complexe */
+    background-size: 200%; /* Étend le gradient pour permettre le défilement */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Applique uniquement le gradient */
+    color: transparent; /* Cache la couleur de base */
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(50px); /* Décalage vers le bas */
+    transition: opacity 1.2s ease-out, transform 1.75s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0); /* Retour à la position initiale */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+}
+
+.language-cards{
+    display: flex;
+    height: 100%;
+    max-height: 150px;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 12px;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10%;
+    background: #f1f1fe;
+    transition: scale .32s ease, box-shadow .32s ease;
+    gap: 10px;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.6); 
+    box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.6);
+}
+
+.language-cards:hover{
+    scale: 1.025;
+    -webkit-box-shadow: 0px 0px 20px 5px #000000; 
+    box-shadow: 0px 0px 20px 5px #000000;
 }
 
 @media screen and (max-width: 1920px) {
