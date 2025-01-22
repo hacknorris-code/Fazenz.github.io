@@ -504,7 +504,7 @@ body {
 
 .language-title {
     margin: 10% 0 0 0;
-    font-size: clamp(4em, 8em, 12em);
+    font-size: clamp(2em, 8em, 12em);
     font-weight: bold;
     text-align: center;
     background: linear-gradient(135deg, #f1f1fe, #000000, #000000, #000000); /* Gradient complexe */
