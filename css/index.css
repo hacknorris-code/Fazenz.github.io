@@ -499,7 +499,7 @@ body {
     flex-direction: column;
     position: relative;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
     background: rgb(241,241,254);
     background: linear-gradient(180deg, rgba(241,241,254,1) 0%, rgba(185,176,192,1) 20%, rgba(119,100,120,1) 45%, rgba(89,65,87,1) 70%);
 }
