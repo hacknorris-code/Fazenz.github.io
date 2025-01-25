@@ -3,23 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Title</title>
+    <title>Popup Card with Close Button</title>
     <style>
-        .title {
-            font-size: 12em; /* Taille par défaut */
-            transition: font-size 0.2s ease; /* Animation fluide */
-            text-align: center;
-            margin: 50px 0;
-        }
         body {
-            height: 2000px; /* Simuler une hauteur de contenu pour tester le défilement */
-            margin: 0;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .work-cards-card {
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            margin: 20px;
+        }
+
+        .work-cards-1 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease, width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+            cursor: pointer;
+        }
+
+        .work-cards-1.open {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 90%;
+            height: 90%;
+            transform: translate(-50%, -50%) rotateY(180deg);
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .work-cards-1 .work-cards-title-front,
+        .work-cards-1 .work-cards-title-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .work-cards-title-front {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+        }
+
+        .work-cards-title-front img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .work-cards-title-back {
+            background-color: #333;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .close-button {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .close-button:hover {
+            background: rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
 <body>
-    <div class="title">Titre Dynamique</div>
-    <script src="scripts/scrolling.js"></script>
+    <div class="container">
+        <div class="work-cards-container">
+            <div class="work-cards-card">
+                <div class="work-cards-1" onclick="popup(this)">
+                    <div class="work-cards-title-front">
+                        <img src="img/AppleTransports.png" alt="Image Projet Apple Transport">
+                    </div>
+                    <div class="work-cards-title-back">
+                        <p>Details about the project. Apple Transport is a logistics project...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" onclick="closePopup()"></div>
+    <button class="close-button" onclick="closePopup()">×</button>
+
+    <script>
+        function popup(card) {
+            const overlay = document.querySelector('.overlay');
+            const closeButton = document.querySelector('.close-button');
+            card.classList.toggle('open');
+            overlay.classList.add('active');
+            closeButton.style.display = 'flex';
+        }
+
+        function closePopup() {
+            const openCard = document.querySelector('.work-cards-1.open');
+            const overlay = document.querySelector('.overlay');
+            const closeButton = document.querySelector('.close-button');
+            if (openCard) {
+                openCard.classList.remove('open');
+            }
+            overlay.classList.remove('active');
+            closeButton.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
